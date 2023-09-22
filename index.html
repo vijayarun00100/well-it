@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
@@ -157,7 +157,7 @@ body::after {
 
     </style>
     <title>Well It!</title>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-light-blue">
@@ -375,16 +375,15 @@ body::after {
             });
         });
     </script>
-    <script type="text/javascript" sre="nttp://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        
+        let var_ = '';
         document.querySelector("#stateDropdown").addEventListener("click", function () {
             const selectedState = document.querySelector("#selectedState").innerText;
 
             if (selectedState === "Rajasthan") {
                 const rajasthanDistricts = [
-                    "Ajmer",
+                    "AJAGARA",
                     "Alwar",
                     "Banswara",
                     "Baran",
@@ -419,10 +418,10 @@ body::after {
                     "Udaipur"
                 ];
                 
-                const districtDropdownButton = document.querySelector("#districtDropdownButton");
-                //districtDropdownButton.innerHTML = '';
-                 const k = document.querySelector("#districtDropdownButton").innerText;
-                 console.log(k);
+                const districtDropdown = document.querySelector("#districtDropdown");
+
+                districtDropdown.innerHTML = '';
+
                 rajasthanDistricts.forEach(district => {
                     const districtOption = document.createElement("a");
                     districtOption.classList.add("dropdown-item");
@@ -431,21 +430,22 @@ body::after {
                     districtOption.dataset.district = district;
 
                     districtOption.addEventListener("click", function (e) {
-                        document.querySelector("#selectedDistrict").innerText = e.target.dataset.district;
-                    });
+                        document.querySelector("#selectedDistrict").innerText = this.dataset.district;
+                        //console.log(this.dataset.district);
+                        var_ = var_ + this.dataset.district;
+                        //console.log(var_);
+                        const val = {var_};
+                        const s = JSON.stringify(val); 
+                        console.log(s);
+                        $.ajax({
+                            url:"/test",
+                            type:"POST",
+                            contentType: "application/json",
+                            data: JSON.stringify(s)});
+                        });
 
-                    districtDropdown.appendChild(districtOption);
-                    
+                        districtDropdown.appendChild(districtOption);
                 });
-                const dict_values = {selectedState, districtDropdown} //Pass the javascript variables to a dictionary.
-                const s = JSON.stringify(dict_values); // Stringify converts a JavaScript object or value to JSON.
-                console.log(s); // Prints the variables to console window, which are in the JSON format window.alert(s)
-                // $.ajax({
-                //     url:"/test",
-                //     type: "POST",
-                //     contentType: "application/json",
-                //     data: JSON.stringify(s)});
-
             } else {
                 const districtDropdown = document.querySelector("#districtDropdown");
                 districtDropdown.innerHTML = '';
