@@ -335,35 +335,6 @@ body::after {
 
                 stateDropdown.appendChild(stateOption);
             });
-            const regionDropdown = document.querySelector("#regionDropdown");
-
-const randomRegions = [
-    "AJAGARA",
-    "Andheri",
-    "ARIAN",
-    "BAGLIAS",
-    "BARORA",
-    "DASUK",
-    "Goelo",
-    "Gopalpura",
-    "JAWAJAI",
-    "JHOPADIAN",
-];
-
-randomRegions.forEach(region => {
-    const regionOption = document.createElement("a");
-    regionOption.classList.add("dropdown-item");
-    regionOption.href = "#";
-    regionOption.textContent = region;
-
-    regionOption.addEventListener("click", function (e) {
-        // You can handle the click event if needed
-        // For now, it will select the clicked region
-        document.querySelector("#regionDropdownButton").textContent = e.target.textContent;
-    });
-
-    regionDropdown.appendChild(regionOption);
-});
 
             
             document.getElementById("apiLocationButton").addEventListener("click", function () {
@@ -479,45 +450,6 @@ randomRegions.forEach(region => {
                 const districtDropdown = document.querySelector("#districtDropdown");
                 districtDropdown.innerHTML = '';
             }
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Function to populate the region dropdown
-            function populateRegionDropdown() {
-                const regionDropdown = document.querySelector("#regionDropdown");
-    
-                const randomRegions = [
-                    "AJAGARA",
-                    "Andheri",
-                    "ARIAN",
-                    "BAGLIAS",
-                    "BARORA",
-                    "DASUK",
-                    "Goelo",
-                    "Gopalpura",
-                    "JAWAJAI",
-                    "JHOPADIAN",
-                ];
-    
-                randomRegions.forEach(region => {
-                    const regionOption = document.createElement("a");
-                    regionOption.classList.add("dropdown-item");
-                    regionOption.href = "#";
-                    regionOption.textContent = region;
-    
-                    regionOption.addEventListener("click", function (e) {
-                        // You can handle the click event if needed
-                        // For now, it will select the clicked region
-                        document.querySelector("#regionDropdownButton").textContent = e.target.textContent;
-                    });
-    
-                    regionDropdown.appendChild(regionOption);
-                });
-            }
-    
-            // Call the function to populate the region dropdown
-            populateRegionDropdown();
         });
     </script>
     
