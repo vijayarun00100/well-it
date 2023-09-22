@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-    
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <style>
         .navbar-light-blue {
             background-color: #002e6e;
@@ -26,7 +26,7 @@
             font-size: 24px !important;
         }
 
-        body {
+        /* body {
             background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
                               linear-gradient(90deg, #add8e6 50%, #fff 50%);
             background-size: 200% 100%;
@@ -41,28 +41,141 @@
         .navbar-brand{
             color: #00B9F1 !important;
 
-        }
+        } */
+        body {
+        background: -moz-linear-gradient(45deg, #02e1ba 0%, #26c9f2 29%, #d911f2 66%, #ffa079 100%);
+        background: -webkit-linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#d911f2 66%,#ffa079 100%);
+        background: linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#d911f2 66%,#ffa079 100%);
+        background-size: 400% 400%;
+        -webkit-animation: Gradient 15s ease infinite;
+	    -moz-animation: Gradient 15s ease infinite;
+	    animation: Gradient 15s ease infinite;
+	    /*min-height: calc(100vh - 2rem);*/
+	    display: flex;
+	    flex-direction: column;
+	    align-items: stretch;
+	    justify-content: space-evenly;
+	    overflow: hidden;
+	    position: relative; 
+}   
+
+body::before, 
+body::after {
+	content: "";
+	width: 70vmax;
+	height: 70vmax;
+	position: absolute;
+	background: rgba(255, 255, 255, 0.07);
+	left: -20vmin;
+	top: -20vmin;
+	animation: morph 15s linear infinite alternate, spin 20s linear infinite;
+	z-index: 1;
+	will-change: border-radius, transform;
+	transform-origin: 55% 55%;
+	pointer-events: none; 
+}
+	
+body::after {
+    width: 70vmin;
+    height: 70vmin;
+    left: auto;
+    right: -10vmin;
+    top: auto;
+    bottom: 0;
+    animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse;
+    transform-origin: 20% 20%; 
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0 50%
+	}
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
+  100% {
+    border-radius: 40% 60%; } 
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn); 
+  } 
+}
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{opacity:0.29;}
+	.st3{fill:#FFFFFF;}
+	.st4{clip-path:url(#SVGID_2_);fill:#FFFFFF;}
+	.st5{clip-path:url(#SVGID_4_);}
+	.st6{clip-path:url(#SVGID_6_);}
+	.st7{clip-path:url(#SVGID_8_);}
+	.st8{clip-path:url(#SVGID_10_);}
+	.st9{fill:none;}
+	.st10{clip-path:url(#SVGID_12_);}
+	.st11{opacity:0.7;}
+	.st12{clip-path:url(#SVGID_14_);}
+	.st13{opacity:0.2;}
+	.st14{clip-path:url(#SVGID_16_);}
+	.st15{opacity:0.3;fill:#FFFFFF;enable-background:new    ;}
+
+    a{
+        color: white;
+    }
+
     </style>
-    
     <title>Well It!</title>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-light-blue">
         <div class="container">
-            <a class="navbar-brand ml-auto" href="#">Well It!</a>
+            <a class="navbar-brand ml-auto" href="#" style = "color: white;">Well It!</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html" >About</a>
+                        <a class="nav-link" href="about.html" style = "color: white;padding-right: 56px;" >About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Community</a>
+                        <a class="nav-link" href="#" style = "color: white;">Community</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">FAQ</a>
+                        <a class="nav-link" href="#" style = "color: white; padding-left: 56px;" >FAQ</a>
                     </li>
                 </ul>
             </div>
@@ -127,15 +240,15 @@
             
             <div class="row pt-4">
                 <div class="col-sm text-center">
-                    <hr style="border-top: 1px solid #6c757d; width: 50%; margin-top: 10px;">
+                    <!-- <hr style="border-top: 1px solid #6c757d; width: 50%; margin-top: 10px;"> -->
                     <strong style="font-size: 20px; margin: 0 10px;">OR</strong>
-                    <hr style="border-top: 1px solid #6c757d; width: 50%; margin-top: 10px;">
+                    <!-- <hr style="border-top: 1px solid #6c757d; width: 50%; margin-top: 10px;"> -->
                 </div>
             </div>
 
             <div class="row pt-3">
                 <div class="col-sm text-center">
-                    <p>To Fetch Your Location Automatically</p>
+                    <p style="color: white;">To Fetch Your Location Automatically</p>
                 </div>
             </div>
 
@@ -158,9 +271,10 @@
                 strings: [textToType],
                 typeSpeed: 80, 
                 startDelay: 500, 
-                showCursor: false,
+                showCursor: false,  
                 onComplete: function () {
                     document.querySelector('#locationForm').style.display = 'block';
+                    document.querySelector('#locationForm').style.color = "white";
                 }
             });
 
@@ -261,7 +375,8 @@
             });
         });
     </script>
-
+    <script type="text/javascript" sre="nttp://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         
         document.querySelector("#stateDropdown").addEventListener("click", function () {
@@ -303,11 +418,11 @@
                     "Tonk",
                     "Udaipur"
                 ];
-
                 
-                const districtDropdown = document.querySelector("#districtDropdown");
-                districtDropdown.innerHTML = '';
-
+                const districtDropdownButton = document.querySelector("#districtDropdownButton");
+                //districtDropdownButton.innerHTML = '';
+                 const k = document.querySelector("#districtDropdownButton").innerText;
+                 console.log(k);
                 rajasthanDistricts.forEach(district => {
                     const districtOption = document.createElement("a");
                     districtOption.classList.add("dropdown-item");
@@ -320,12 +435,23 @@
                     });
 
                     districtDropdown.appendChild(districtOption);
+                    
                 });
+                const dict_values = {selectedState, districtDropdown} //Pass the javascript variables to a dictionary.
+                const s = JSON.stringify(dict_values); // Stringify converts a JavaScript object or value to JSON.
+                console.log(s); // Prints the variables to console window, which are in the JSON format window.alert(s)
+                // $.ajax({
+                //     url:"/test",
+                //     type: "POST",
+                //     contentType: "application/json",
+                //     data: JSON.stringify(s)});
+
             } else {
                 const districtDropdown = document.querySelector("#districtDropdown");
                 districtDropdown.innerHTML = '';
             }
         });
     </script>
+    
 </body>
 </html>
