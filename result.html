@@ -9,7 +9,6 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            text-align: center;
             background-color: #f0f0f0;
             display: flex;
             flex-direction: column;
@@ -19,10 +18,36 @@
             margin: 0;
         }
 
-        .results-heading {
+        .heading {
             font-weight: 700;
             font-size: 36px;
-            margin-top: 20px;
+            margin:auto;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .card-container {
+            flex: 1;
+            max-width: 25%;
+            height: 300px; /* Set the desired height */
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px #007bff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .results-heading {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 20px;
         }
 
         .progress-container {
@@ -30,8 +55,7 @@
             height: 100px;
             border-radius: 50%;
             position: relative;
-            box-shadow: 0 0 10px #007bff; 
-            margin-top: 20px; 
+            margin: 0 auto;
         }
 
         .progress-circle {
@@ -45,7 +69,7 @@
         }
 
         .percentage {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 700;
             position: absolute;
             top: 50%;
@@ -55,46 +79,63 @@
 
         .result-text {
             font-weight: 700;
-            font-size: 24px;
-            margin-top: 20px; 
-            opacity: 1; 
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .water-quality {
+            font-weight: 700;
+            font-size: 18px;
+            margin-top: 20px;
         }
     </style>
 
-    <title>Results</title>
+    <title>Prediction</title>
 </head>
 <body>
-    <div class="results-heading">
-        Results
-    </div>
+    <h1 class="heading">RESULTS</h1>
+    <div class="cards-container">
+        <div class="card-container">
+            <div class="results-heading">
+                Prediction
+            </div>
+            <div class="progress-container">
+                <div class="progress-circle" style="--percentage: 0%;"></div>
+                <div class="percentage">0%</div>
+            </div>
+            <div class="result-text" id="result-text"></div>
+        </div>
 
-    <div class="progress-container">
-        <div class="progress-circle" style="--percentage: 0%;"></div>
-        <div class="percentage">0%</div>
-    </div>
+        <div class="card-container">
+            <div class="results-heading">
+                Water Quality
+                <!-- <p>Water Quality {{ name }}</p> -->
+            </div>
+            <div class="water-quality" id="water-quality"></div>
+        </div>
 
-    <div class="result-text" id="result-text">
-       
+        <div class="card-container">
+            <p> Depth of Ground Water {{ name }}. </p>
+        </div>
+
     </div>
 
     <script>
-       
         const randomPercentage = Math.floor(Math.random() * 99) + 1;
-
-        
         document.querySelector(".progress-circle").style.setProperty("--percentage", `${randomPercentage}%`);
-
-        
         document.querySelector(".percentage").textContent = `${randomPercentage}%`;
 
-        
         const resultText = document.querySelector("#result-text");
-
         if (randomPercentage > 50) {
             resultText.textContent = "Yes, construction of a well is feasible at this location";
         } else {
             resultText.textContent = "No, construction of a well is not feasible at this location";
         }
+
+        const waterQualityOptions = ["Good", "Moderate", "Bad"];
+        const randomIndex = Math.floor(Math.random() * waterQualityOptions.length);
+        const randomWaterQuality = waterQualityOptions[randomIndex];
+        document.querySelector("#water-quality").textContent = randomWaterQuality;
     </script>
 </body>
 </html>
